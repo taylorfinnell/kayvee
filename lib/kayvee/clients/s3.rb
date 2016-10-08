@@ -53,18 +53,40 @@ module Kayvee
         obj.save
       end
 
+      # Check if key exists in the store
+      #
+      # @param [String] path the key path
+      # @return [Bool] true of false
       def exists?(path)
         get(path).exists?
+      end
+
+      # Clear the store
+      #
+      # @return [Bool] true if all items removed, else false
+      def clear
+        objects.map(&:destroy).reduce(&:&)
+      end
+
+      # Get the size of the store
+      #
+      # @return [Integer] size of store
+      def size
+        objects.count
       end
 
       private
 
       def build(path)
-        bucket.objects.build(path)
+        objects.build(path)
       end
 
       def get(path)
-        bucket.objects.find(path)
+        objects.find(path)
+      end
+
+      def objects
+        bucket.objects
       end
 
       def bucket

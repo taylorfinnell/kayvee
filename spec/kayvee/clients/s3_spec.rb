@@ -12,6 +12,24 @@ module Kayvee
         })
       end
 
+      describe '#size' do
+        it 'returns the conut of items in store' do
+          @s3.clear
+          @s3.write('test', 'sup')
+
+          expect(@s3.size).to eq(1)
+        end
+      end
+
+      describe '#clear' do
+        it 'deletes everything' do
+          @s3.write('test', 'sup')
+          @s3.clear
+
+          expect(@s3.size).to eq(0)
+        end
+      end
+
       describe '#write' do
         it 'can write a string' do
           @s3.write('test', 'sup')

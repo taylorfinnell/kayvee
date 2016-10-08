@@ -58,6 +58,15 @@ module Kayvee
     end
     alias :[] :get
 
+    # Clear the underlying store
+    def clear
+      @client.clear
+    end
+
+    def size
+      @client.size
+    end
+
     private
 
     def instantiate_client(client, options)
