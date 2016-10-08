@@ -79,11 +79,6 @@ module Kayvee
         raise OptionMissingError.new, 'missing aws key' unless aws_access_key
         raise OptionMissingError.new, 'missing aws secret' unless aws_secret_key
         raise OptionMissingError.new, 'missing bucket name' unless bucket_name
-        raise OptionMissingError.new, 'missing prefix' unless prefix
-      end
-
-      def prefix
-        options[:prefix]
       end
 
       def bucket_name

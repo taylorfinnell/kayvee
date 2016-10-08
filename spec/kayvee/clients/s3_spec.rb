@@ -9,7 +9,6 @@ module Kayvee
           aws_access_key: ENV['AWS_ACCESS_KEY'],
           aws_secret_key: ENV['AWS_SECRET_KEY'],
           bucket_name: ENV['AWS_BUCKET'],
-          prefix: ENV['AWS_PREFIX']
         })
       end
 
