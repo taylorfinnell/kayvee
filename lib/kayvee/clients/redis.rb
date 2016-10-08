@@ -22,7 +22,7 @@ module Kayvee
       #
       # @return [String\nil] the read string or nil if key does not exist
       def read(path)
-        @store.get(path)
+        @store.get(_path(path))
       end
 
       # @param [String] path the path to read
@@ -30,10 +30,22 @@ module Kayvee
       #
       # @return [Key] the modified key
       def write(path, value)
-        @store.set(path, value)
+        @store.set(_path(path), value)
+      end
+
+      def size
+        raise NotImplementedError
+      end
+
+      def clear
+        raise NotImplementedError
       end
 
       private
+
+      def _path(path)
+        "kayvee:#{path}"
+      end
 
       def validate_options!
         true
