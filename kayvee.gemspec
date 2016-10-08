@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'dotenv'
+  spec.add_development_dependency 'fakeredis'
 
   spec.add_development_dependency 's3'
   spec.add_development_dependency 'redis'

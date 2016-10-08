@@ -3,6 +3,7 @@ ENV['ENV'] = 'test'
 
 require 'kayvee'
 require 'dotenv'
+require 'fakeredis'
 
 Dotenv.load('.env.test')
 
